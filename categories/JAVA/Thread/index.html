@@ -17,7 +17,7 @@
     <link rel="icon" href="/favicon.ico" >
     
     
-<link rel="stylesheet" href="/css/style.css?v=1612864773391.css">
+<link rel="stylesheet" href="/css/style.css?v=1612963907770.css">
 
     <!--[if lt IE 9]>
     
@@ -98,7 +98,7 @@
                 
             </div>
             <div class="avatar fr">
-                <img src="/img/Kerach.jpg" alt="avatar" title="Jelon" >
+                <img src="https://i.loli.net/2021/02/09/FNUf1DSsXlHQw97.jpg" alt="avatar" title="Jelon" >
             </div>
         </div>
     </section>
@@ -206,8 +206,14 @@
     <div class="post-content">
         <div class="post-excerpt">
             
-                <p>​    what’s the meaning of thread safety ? I consider that most of people don’t understand it or descript it clearly. Thread safety should be called as Memory safety. You should ensure data right  and uniformity when many threads visit it concurrently. </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;comments&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;comment&quot;</span>&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">JELON.Comment(&#123;</span><br><span class="line">  container: <span class="string">&#x27;comments&#x27;</span>, <span class="comment">// 评论框容器id或对象，留空是默认为 comments </span></span><br><span class="line">  label: <span class="string">&#x27;&lt;%- post.slug %&gt;&#x27;</span> || <span class="string">&#x27;&lt;%- post.path %&gt;&#x27;</span>,  <span class="comment">// 文章标签</span></span><br><span class="line">  owner: <span class="string">&#x27;&lt;%- theme.comment.owner %&gt;&#x27;</span>, <span class="comment">// GitHub application 创建者</span></span><br><span class="line">  repo: <span class="string">&#x27;&lt;%- theme.comment.repo %&gt;&#x27;</span>, <span class="comment">// issue 所在仓库名</span></span><br><span class="line">  clientId: <span class="string">&#x27;&lt;%- theme.comment.client_id %&gt;&#x27;</span>, <span class="comment">// GitHub application client_id</span></span><br><span class="line">  clientSecret: <span class="string">&#x27;&lt;%- theme.comment.client_secret %&gt;&#x27;</span> <span class="comment">// GitHub application client_secret</span></span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+                <h2 id="What’s-the-meaning-of-thread-safety"><a href="#What’s-the-meaning-of-thread-safety" class="headerlink" title="What’s the meaning of thread safety ?"></a>What’s the meaning of thread safety ?</h2><p> I consider that most of people don’t understand it or describe it clearly. Thread safety should be called as Memory safety. You should ensure data right  and uniformity when many threads visit it concurrently. </p>
+<h2 id="How-to-avoid-thread-safety-problem"><a href="#How-to-avoid-thread-safety-problem" class="headerlink" title="How to avoid thread safety problem ?"></a>How to avoid thread safety problem ?</h2><p>There are three methods to solve it . </p>
+<ul>
+<li>don’t shared a status variable at threads</li>
+<li>make a status variable Immutable</li>
+<li>use synchronization when thread visit a status variable</li>
+</ul>
+
             
             <p class="more">
                 <a href="https://kerach.ltd/2021/02/04/safety-thread/">阅读剩下更多</a>
@@ -382,7 +388,7 @@
     <!--博客js脚本 -->
     <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1612864773391.js"></script>
+<script src="/js/main.js?v=1612963907771.js"></script>
 
 
 </body>
