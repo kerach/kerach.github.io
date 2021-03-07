@@ -1,456 +1,531 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
+
+
 <head>
-    <meta charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
-    
-    <title>Kerach</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
-    <meta name="keywords" content="Kerach, 前端, Web, 顾亚辉, 后端开发" >
-    <meta name="description" content="Kerach个人前端小站" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Kerach
+  </title>
+  <meta name="description" content="releasing my mind and idea">
+  
+  <meta name="author" content="Kerach">
 
-    
-    <link rel="alternative" href="/atom.xml" title="Kerach" type="application/atom+xml" >
-    
-    
-    <link rel="icon" href="/favicon.ico" >
-    
-    
-<link rel="stylesheet" href="/css/style.css?v=1612963907769.css">
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
 
-    <!--[if lt IE 9]>
-    
-<script src="/js/html5.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
-    <![endif]-->
-    
+  
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <meta name="generator" content="Hexo 5.1.1"></head>
 
-<body class="home">
-    <!--[if lt IE 9]>
-    <div class="browsehappy">
-        当前网页 <strong>不支持</strong>
-        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
     </div>
-    <![endif]-->
+  </div>
+</nav>
 
-    <!-- 博客头部 -->
-    <header class="header">
-    <section class="container header-main">
-        <div class="logo">
-            <a href="/">
-                <div class="cover">
-                    <span class="name">Kerach</span>
-                    <span class="description">Kerach&#39;s Blog</span>
-                </div>
-            </a>
-        </div>
-        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
-        <ul class="menu hidden" id="JELON__menu">
-            
-            <li rel="/index.html" class="item current">
-                <a href="/" title="Home" class="iconfont icon-home">&nbsp;Home</a>
-            </li>
-            
-            <li rel="/index.html" class="item ">
-                <a href="/archives/" title="Archives" class="iconfont icon-archives">&nbsp;Archives</a>
-            </li>
-            
-            <li rel="/index.html" class="item ">
-                <a href="/about/" title="About" class="iconfont icon-staff">&nbsp;About</a>
-            </li>
-            
-            <li rel="/index.html" class="item ">
-                <a href="/comment/" title="Comment" class="iconfont icon-comment">&nbsp;Comment</a>
-            </li>
-            
-        </ul>
-        <div class="profile clearfix">
-            <div class="feeds fl">
-                
-                
-                <p class="links">
-                    
-                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
-                        |
-                    
-                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
-                        
-                    
-                </p>
-                <p class="sns">
-                    
-                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
-                    
-                        <a href="https://juejin.im/user/3984285869282919" class="qqweibo" target="_blank"><b>■</b> 掘金</a>
-                    
-                    <a href="javascript: void(0);" class="wechat">
-                        <b>■</b>
-                        公众号
-                        <span class="popover">
-                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
-                            <i class="arrow"></i>
-                        </span>
-                    </a>
-                </p>
-                
-            </div>
-            <div class="avatar fr">
-                <img src="https://i.loli.net/2021/02/09/FNUf1DSsXlHQw97.jpg" alt="avatar" title="Jelon" >
-            </div>
-        </div>
-    </section>
-</header>
+<div class="main-container">
+  
 
+<div class="container-lg">
+  
 
-    <!-- 博客正文 -->
-    <div class="container body clearfix">
-        <section class="content">
-            <div class="content-main widget">
-                <!-- 首页 -->
-
-    
-    <h3 class="widget-hd">
-        <strong>
-            
-                最近动态
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/JAVA/">JAVA</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://kerach.ltd/2021/02/08/The-basic-concept-of-thread/">
-    		The basic concept of thread
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Kerach 发表于
-        <time datetime="2021-02-08T12:10:52.000Z">2021-02-08</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/Thread-Basic-concept/" title="-Thread -Basic concept">-Thread -Basic concept</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h2 id="What-is-a-process"><a href="#What-is-a-process" class="headerlink" title="What is a process ?"></a>What is a process ?</h2><p>The process should be a dynamic status for a program. A running of program called as process  that is isolated for  each other . Once an application is running, it is called a process.</p>
-<h2 id="What-is-a-thread-？"><a href="#What-is-a-thread-？" class="headerlink" title="What is a thread ？"></a>What is a thread ？</h2><p>Thread is the basic unit of CPU scheduling and included in a process . Thread is a actual single sequential control flow in a process.</p>
-
-            
-            <p class="more">
-                <a href="https://kerach.ltd/2021/02/08/The-basic-concept-of-thread/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://kerach.ltd/2021/02/08/The-basic-concept-of-thread/" title="The basic concept of thread">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/8.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/JAVA/">JAVA</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://kerach.ltd/2021/02/04/safety-thread/">
-    		Java Thread
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Kerach 发表于
-        <time datetime="2021-02-04T03:19:03.000Z">2021-02-04</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/java/" title="java">java</a> / 
-    
-        <a href="/tags/thread/" title="thread">thread</a>
-    
-
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h2 id="What’s-the-meaning-of-thread-safety"><a href="#What’s-the-meaning-of-thread-safety" class="headerlink" title="What’s the meaning of thread safety ?"></a>What’s the meaning of thread safety ?</h2><p> I consider that most of people don’t understand it or describe it clearly. Thread safety should be called as Memory safety. You should ensure data right  and uniformity when many threads visit it concurrently. </p>
-<h2 id="How-to-avoid-thread-safety-problem"><a href="#How-to-avoid-thread-safety-problem" class="headerlink" title="How to avoid thread safety problem ?"></a>How to avoid thread safety problem ?</h2><p>There are three methods to solve it . </p>
-<ul>
-<li>don’t shared a status variable at threads</li>
-<li>make a status variable Immutable</li>
-<li>use synchronization when thread visit a status variable</li>
-</ul>
-
-            
-            <p class="more">
-                <a href="https://kerach.ltd/2021/02/04/safety-thread/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://kerach.ltd/2021/02/04/safety-thread/" title="Java Thread">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/4.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-            <a href="javascript: void(0);" class="cat">未分类</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://kerach.ltd/2021/02/03/hello-world/">
-    		Hello World
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Kerach 发表于
-        <time datetime="2021-02-03T12:34:32.067Z">2021-02-03</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-            
-            <p class="more">
-                <a href="https://kerach.ltd/2021/02/03/hello-world/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://kerach.ltd/2021/02/03/hello-world/" title="Hello World">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/3.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-        <!-- 文章列表 item -->
-<article class="post">
-    <header>
-        <!-- 标签这有且只能显示一个 -->
-        
-        <a class="cat-link" href="/categories/JAVA/">JAVA</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="https://kerach.ltd/2020/09/03/mypage/">
-    		mypage
-    	</a>
-    </h3>
-
-    </header>
-    <p class="post-meta">
-        Kerach 发表于
-        <time datetime="2020-09-03T02:50:02.000Z">2020-09-03</time>
-        &nbsp;&nbsp;
-        <span class="post-tags">
-            标签：
-            
-        </span>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
-            
-                <p>123</p>
-
-            
-            <p class="more">
-                <a href="https://kerach.ltd/2020/09/03/mypage/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="https://kerach.ltd/2020/09/03/mypage/" title="mypage">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="/img/thumbnail/3.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-</article>
-
-    
-
-    
-    <nav class="page-navigator">
-        <span class="page-number current">1</span>
-    </nav>
-    
-
-
-
-
-            </div>
-        </section>
-        <!-- 侧栏部分 -->
-<aside class="sidebar">
-    
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
-        <div class="search-form">
-  <form
-    id="searchForm"
-    method="GET"
-    action="https://www.baidu.com/s"
-    ectype="application/x-www-form-urlencoded"
-    target="_blank"
-    autocomplete="false"
-    onsubmit="javascript: return false;">
-    <input
-      id="searchKeyword"
-      type="text"
-      class="form-control"
-      placeholder="输入关键字搜索"
-      autocomplete="false"
-    />
-    <input id="searchKeywordHidden" type="hidden" name="wd" />
-    <input id="searchButton" class="btn" type="submit" value="搜索" />
-  </form>
-</div>
-    </section>
-    
-
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章分类</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/baracktocat.jpg">
+    <div class="user-name">
+      <div class="blog-title"></div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
     
     <li>
-        <a href="/categories/JAVA/">JAVA</a>
-        <span class="badge">(3)</span>
+      <i class="fa fa-link"></i>
+      <a href="https://kerach.ltd">https://kerach.ltd</a>
     </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
     
     <li>
-        <a href="/categories/JAVA/Thread/">Thread</a>
-        <span class="badge">(3)</span>
+      <i class="fa fa-link"></i>
+      <a href="https://kerach.ltd">https://kerach.ltd</a>
     </li>
-    
-</ul>
-    </section>
+  </ul>
 
-    
-    <section class="widget">
-        <h3 class="widget-hd"><strong>热门标签</strong></h3>
-        <!-- 文章标签 -->
-<div class="widget-bd tag-wrap">
-  
-    <a class="tag-item" href="/tags/Thread-Basic-concept/" title="-Thread -Basic concept">-Thread -Basic concept (1)</a>
-  
-    <a class="tag-item" href="/tags/java/" title="java">java (1)</a>
-  
-    <a class="tag-item" href="/tags/thread/" title="thread">thread (1)</a>
-  
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
+      
+      <li class="social-media-item"><a href="https://github.com/kerach" target="_blank"><i class="fa fa-github"></i></a></li>
+      
+    </ul>
+  </div>
 </div>
-    </section>
-    
 
-    
 
+  <div class="blog-detail">
     
-    <!-- 友情链接 -->
-    <section class="widget">
-        <h3 class="widget-hd"><strong>友情链接</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
-    
-        <li>
-            <a href="https://github.com/front-end-pigs/blog" target="_blank" title="Github博客">Github博客</a>
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="selected">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/archives">Posts <span class="counter">9</span></a>
+    </li>
+    <li class="">
+      <a href="/categories">Categories <span
+                class="counter">4</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">15</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <p class="right-title">Recent post</p>
+      <ul class="recent-post clearfix">
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2021/03/04/the-summary-of-interview/">the summary of interview</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+              
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <i class="fa fa-folder-open"></i> Uncategorized
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 0 </span>
+            </p>
+          </div>
         </li>
-    
-        <li>
-            <a href="https://Kerach.info" target="_blank" title="Kerach博客">Kerach博客</a>
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2021/02/25/String%E3%80%81StringBuffer%E3%80%81StringBuilder-difference/">String、StringBuffer、StringBuilder difference</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+              
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/JAVA/"><i class="fa fa-folder-open"></i> JAVA</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 4 </span>
+            </p>
+          </div>
         </li>
-    
-</ul>
-    </section>
-    
-</aside>
-<!-- / 侧栏部分 -->
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2021/02/25/the-basic-concept-of-java/">the basic concept of java</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+               ##Java Memory Type Classification 
+ 
+ Register 
+ 
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/JAVA/"><i class="fa fa-folder-open"></i> JAVA</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 2 </span>
+            </p>
+          </div>
+        </li>
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2021/02/25/the-basic-concept-of-kafka/">the basic concept of kafka</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+              
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/Kafka/"><i class="fa fa-folder-open"></i> Kafka</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 2 </span>
+            </p>
+          </div>
+        </li>
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2021/02/23/the-basic-concept-of-docker/">the basic concept of docker</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+               ## 
+
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/Docker/"><i class="fa fa-folder-open"></i> Docker</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 3 </span>
+            </p>
+          </div>
+        </li>
+        
+        <li class="recent-post-item">
+          <div class="clearfix">
+            <h5 class="post-title text-ellipsis">
+              <i class="fa fa-bars"></i>
+              <a href="/2021/02/22/the-basic-concept-of-redis/">the basic concept of redis</a>
+            </h5>
+            <p class="post-description text-ellipsis desktop-only">
+                 The Basic Concept Of Redis    &amp;emsp;&amp;emsp;the b
+            </p>
+            <p class="post-info desktop-only">
+              <span>
+                
+                  <a class="category-link" href="/categories/Redis/"><i class="fa fa-folder-open"></i> Redis</a>
+                
+              </span>
+              <span><i class="fa fa-tag"></i> 2 </span>
+            </p>
+          </div>
+        </li>
+        
+      </ul>
+      <div class="calendar-container" id="calendar">
+  <div class="calendar">
+    <h3>
+      {{posts.length}} contributions in the last year
+    </h3>
+    <div class="calendar-graph-container">
+      <div class="calendar-graph">
+        <svg width="676" height="104" @mouseout="mouseoverDate=null">
+          <g transform="translate(16, 20)">
+            <g v-for="week in calendar" :transform="week.transform">
+              <rect v-for="day in week.days"
+                    :x="day.x"
+                    :y="day.y"
+                    :fill="day.fill"
+                    @click="selectedDate=day.date"
+                    @mouseover="mouseoverDate=day.date"
+                    :class="{active:selectedDate===day.date}"
+                    data-count="{{day.posts.length}}"
+                    data-date="{{day.date}}"
+                    class="day" width="10" height="10"
+              ></rect>
+            </g>
+
+            <text v-for="month in monthLabels"
+                  :x="month.x"
+                  y="-5"
+                  class="month">{{month.text}}
+            </text>
+
+
+            <text text-anchor="start" class="wday" dx="-14" dy="8"
+                  style="display: none;">S
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="20">Mon</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="32"
+                  style="display: none;">T
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="44">Wed</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="57"
+                  style="display: none;">T
+            </text>
+            <text text-anchor="start" class="wday" dx="-14" dy="69">Fri</text>
+            <text text-anchor="start" class="wday" dx="-14" dy="81"
+                  style="display: none;">S
+            </text>
+          </g>
+        </svg>
+        <div class="svg-tip svg-tip-one-line"
+             v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
+          <strong>{{svgtip.text}}</strong> on
+          {{moment(mouseoverDate).format('MMM DD, YYYY')}}
+        </div>
+      </div>
+      <div class="calendar-footer clearfix">
+      <span>
+        <a href="#">Learn how we count contributions.</a>
+      </span>
+        <div class="calendar-legend">
+          <span>Less</span>
+          <ul class="legend">
+            <li style="background-color: #eee"></li>
+            <li style="background-color: #d6e685"></li>
+            <li style="background-color: #8cc665"></li>
+            <li style="background-color: #44a340"></li>
+            <li style="background-color: #1e6823"></li>
+          </ul>
+          <span>More</span>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- 博客底部 -->
-    <footer class="footer">
-    &copy;
+  <h3>Contribution activity</h3>
+  <div class="contribution-list">
+    <ul>
+      <li v-for="post in posts | filterBy selectedDate in 'date'">
+        <a href="{{post.url}}">{{post.title}}
+        </a>
+        <span>{{post.date}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<script>
+  var posts = [{"date":"2021-02-04","title":"Java Thread","url":"https://kerach.ltd/2021/02/04/safety-thread/"},{"date":"2021-02-08","title":"The basic concept of thread","url":"https://kerach.ltd/2021/02/08/The-basic-concept-of-thread/"},{"date":"2021-02-22","title":"Spring transaction failure scenarios","url":"https://kerach.ltd/2021/02/22/Spring-transaction-failure-scenarios/"},{"date":"2021-02-22","title":"the basic concept of redis","url":"https://kerach.ltd/2021/02/22/the-basic-concept-of-redis/"},{"date":"2021-02-23","title":"the basic concept of docker","url":"https://kerach.ltd/2021/02/23/the-basic-concept-of-docker/"},{"date":"2021-02-25","title":"String、StringBuffer、StringBuilder difference","url":"https://kerach.ltd/2021/02/25/String%E3%80%81StringBuffer%E3%80%81StringBuilder-difference/"},{"date":"2021-02-25","title":"the basic concept of java","url":"https://kerach.ltd/2021/02/25/the-basic-concept-of-java/"},{"date":"2021-02-25","title":"the basic concept of kafka","url":"https://kerach.ltd/2021/02/25/the-basic-concept-of-kafka/"},{"date":"2021-03-04","title":"the summary of interview","url":"https://kerach.ltd/2021/03/04/the-summary-of-interview/"}];
+  var today = moment().format('YYYY-MM-DD');
+  var oneYearAgo = moment(today).subtract(1, 'years');
+  posts = posts.filter(function(post) {
+    return new Date(post.date) > oneYearAgo;
+  });
+  var monthLabels = [];
+  var monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var calendar = getCalendar(posts);
+
+  var dateRange = {
+    start: moment(oneYearAgo).format('MMM D, YYYY'),
+    end: moment().format('MMM D, YYYY')
+  }
+
+  var app = new Vue({
+    el: '#calendar',
+    data: {
+      posts: posts,
+      selectedDate: null,
+      calendar: calendar,
+      dateRange: dateRange,
+      mouseoverDate: null,
+      moment: moment,
+      monthLabels: monthLabels
+    },
+    created: function() {
+      this.selectedDate = 'none';
+    },
+    methods: {},
+    computed: {
+      svgtip: function() {
+        var date = this.mouseoverDate;
+        var display = date ? 'block' : 'none';
+        if (date) {
+          var coordinator = getIndexByDate(date);
+          var x = coordinator[0];
+          var y = coordinator[1];
+          var len = this.calendar[x].days[y].posts.length;
+          var text = len ? len + ' contributions' : 'No contributions';
+          var left = coordinator[0] * 12 - 37 + 'px';
+          coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
+          var top = coordinator[1] * 12 + 12 - 32 + 'px';
+        }
+        return {
+          text: text,
+          left: left,
+          top: top,
+          display: display
+        }
+      }
+    }
+  });
+
+  function getCalendar(posts) {
+    // raw calendar
+    var maxCount = 0;
+    var tmr = new Date();
+    tmr.setDate(tmr.getDate() + 1);
+    var tmrStr = tmr.toISOString().slice(0, 10);
+    var date = new Date();
+    date.setYear(date.getFullYear() - 1); // start date is a year ago;
+    var calendar = [];
+    while (date.toISOString().slice(0, 10) !== tmrStr) {
+      var day = date.getDay();
+      if (day === 0 || calendar.length === 0) {
+        var x = calendar.length * 13;
+        calendar.push({
+          transform: 'translate(' + x + ',0)',
+          days: []
+        })
+      }
+
+      calendar[calendar.length - 1].days.push({
+        x: 14 - calendar.length,
+        y: day * 12,
+        date: date.toISOString().slice(0, 10),
+        posts: []
+      });
+
+      if (day === 0 && date.getDate() < 8) {
+        monthLabels.push({
+          x: 14 - calendar.length + x,
+          text: monthName[date.getMonth() - 1]
+        })
+      }
+
+      date.setDate(date.getDate() + 1);
+    }
+
+    // handle post info
+    posts.forEach(function(post) {
+      var x = getIndexByDate(post.date)[0];
+      var y = getIndexByDate(post.date)[1];
+
+      calendar[x].days[y].posts.push({
+        title: post.title,
+        url: post.url
+      });
+
+      var len = calendar[x].days[y].posts.length;
+      maxCount = Math.max(len, maxCount);
+    })
+
+    // handle fill color
+    calendar.forEach(function(week) {
+      week.days.forEach(function(day) {
+        day.fill = getColorByLength(day.posts.length, maxCount);
+      })
+    })
+
+    return calendar;
+  }
+
+  function getIndexByDate(date) {
+    date = moment(date);
+    var firstColumnLen = 7 - oneYearAgo.day();
+    var days = date.diff(oneYearAgo, 'days');
+
+    var x = days > firstColumnLen - 1 ? Math.ceil((days - firstColumnLen + 1) / 7) : 0;
+    var y = days > firstColumnLen - 1 ? date.day() : date.day() - oneYearAgo.day();
+    return [x, y];
+  }
+
+  function getColorByLength(len, max) {
+    var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+    var colorsLen = colors.length - 1;
+    var color = len ? colors[0] : colors[1];
+    var interval = max / colorsLen;
+    if (max < colorsLen) {
+      color = colors[len];
+    } else {
+      color = colors[Math.ceil(len / interval)];
+    }
+    return color;
+  }
+
+</script>
+
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://kerach.ltd" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Kerach</li>
+      <li><a href="https://kerach.ltd">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/kerach">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
     
-        2014-2021
-    
+  </footer>
+</div>
 
-    <a href="/">Kerach Loves You</a>
-</footer>
-<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
 
-    <!--博客js脚本 -->
-    <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1612963907770.js"></script>
 
+<script src="/js/main.js"></script>
 
 </body>
 </html>

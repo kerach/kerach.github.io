@@ -8,13 +8,9 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Java Thread | Kerach
+    Kerach
   </title>
   <meta name="description" content="releasing my mind and idea">
-  
-  <meta name="keywords" content="
-  java,thread
-  ">
   
   <meta name="author" content="Kerach">
 
@@ -83,82 +79,97 @@
 </nav>
 
 <div class="main-container">
-  <header class="header-wrapper desktop-only">
-  <div class="container header-site-detail">
-    <ul class="header-toolbar">
-      <li class="clearfix">
-        <a href="/archives" class="header-toolbar-left"><i
-                  class="fa fa-file-text"></i> Posts </a>
-        <a href="/archives"
-           class="header-toolbar-right"> 9 </a>
-      </li>
-      <li>
-        <a href="/tags" class="header-toolbar-left"><i
-                  class="fa fa-tags"></i> Tags </a>
-        <a href="/tags"
-           class="header-toolbar-right"> 15 </a>
-      </li>
-      <li>
-        <a href="/categories" class="header-toolbar-left"><i
-                  class="fa fa-folder-open"></i> Categories </a>
-        <a href="/categories"
-           class="header-toolbar-right"> 4 </a>
-      </li>
-    </ul>
-    <h2 class="header-title">
-      <i class="fa fa-book text-muted"></i>
-      <a href="/">Kerach</a>
-      
-      
-    </h2>
-  </div>
+  
 
-  <div class="container">
-    <div class="header-tab-wrapper clearfix">
-      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
-      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
-      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
-      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
-      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/baracktocat.jpg">
+    <div class="user-name">
+      <div class="blog-title"></div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://kerach.ltd">https://kerach.ltd</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
     </div>
   </div>
-</header>
 
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://kerach.ltd">https://kerach.ltd</a>
+    </li>
+  </ul>
 
-<div class="post-container container">
-  <h3>
-    <i class="fa fa-user-o"></i>
-    Kerach
-
-    <span class="post-date float-right" title="{{moment(1612408743000).format('MMM DD, YYYY, h:mm:ss A')}}">
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
       
-          <i class="fa fa-pencil-square-o"></i>
+      <li class="social-media-item"><a href="https://github.com/kerach" target="_blank"><i class="fa fa-github"></i></a></li>
       
-      {{moment(1612408743000).fromNow()}}
-    </span>
-  </h3>
-
-  <article class="post-content">
-    <h1>Java Thread</h1>
-    <h2 id="What-is-the-meaning-of-thread-safety"><a href="#What-is-the-meaning-of-thread-safety" class="headerlink" title="What is the meaning of thread safety ?"></a>What is the meaning of thread safety ?</h2><p> &emsp;&emsp;I consider that most of people don’t understand it or describe it clearly. Thread safety should be called as Memory safety. You should ensure data right  and uniformity when many threads visit it concurrently.   </p>
-<h2 id="How-to-avoid-thread-safety-problem"><a href="#How-to-avoid-thread-safety-problem" class="headerlink" title="How to avoid thread safety problem ?"></a>How to avoid thread safety problem ?</h2><p> &emsp;&emsp;There are three methods to solve it . </p>
-<ul>
-<li><p>don’t shared a status variable at threads</p>
-</li>
-<li><p>make a status variable Immutable</p>
-</li>
-<li><p>use synchronization when thread visit a status variable</p>
-</li>
-</ul>
-
-  </article>
+    </ul>
+  </div>
 </div>
 
 
+  <div class="blog-detail">
     
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/archives">Posts <span class="counter">9</span></a>
+    </li>
+    <li class="selected">
+      <a href="/categories">Categories <span
+                class="counter">4</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">15</span></a></li>
+  </ul>
+</nav>
 
-
-
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/02/22/the-basic-concept-of-redis/">the basic concept of redis</a></h2>
+          <p>
+               The Basic Concept Of Redis    &amp;emsp;&amp;emsp;the basic data type of redis  
+  String . format:  set key value  . String is safe for binary files. It m...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/Basic-concept/">Basic concept</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/redis/">redis</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/Redis/"><i class="fa fa-folder-open"></i> Redis</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1613980815000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
 
 </div>
 

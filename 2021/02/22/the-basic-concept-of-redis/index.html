@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    the basic concept of redis | Kerach
+  </title>
+  <meta name="description" content="releasing my mind and idea">
+  
+  <meta name="keywords" content="
+  Basic concept,redis
+  ">
+  
+  <meta name="author" content="Kerach">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.1.1"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 15 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">Kerach</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Kerach
+
+    <span class="post-date float-right" title="{{moment(1613980815000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1613980815000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>the basic concept of redis</h1>
+    <h2 id="The-Basic-Concept-Of-Redis"><a href="#The-Basic-Concept-Of-Redis" class="headerlink" title="The Basic Concept Of Redis"></a>The Basic Concept Of Redis</h2><h3 id="emsp-emsp-the-basic-data-type-of-redis"><a href="#emsp-emsp-the-basic-data-type-of-redis" class="headerlink" title="&emsp;&emsp;the basic data type of redis"></a>&emsp;&emsp;the basic data type of redis</h3><ol>
+<li><p>String . format: <code>set key value</code> . String is safe for binary files. It means that the string of redis can be included any data type , such as jpg , serialized objects. A String of reids’s key maximum occupancy 512M.</p>
+</li>
+<li><p>Hash . format : <code>hmset name key1 value1 key2 value2</code>. Redis hash is a key-value collection.Redis hash is a mapping table for the string type of field and value , so redis hash is fit for storing object.</p>
+</li>
+<li><p>List . format : <code>lpush name value </code>. Redis List is simple string List, sorted by inserted. You can add an element at list of head(left) or tail(right). </p>
+<ul>
+<li>Insert an element at the head of list, as follows <code>rpush name value</code></li>
+<li>Insert an element at the tail of list , as follows <code>lrem name index</code></li>
+<li>remove the list of key name and return the count of removed.<code>llen name</code></li>
+</ul>
+</li>
+<li><p>Set . format: <code>sadd name value</code>. Redis set is a unsorted string type of collection. Set is realized by hash table , so its time complexity is O(1) for add 、delete or search .</p>
+</li>
+<li><p>zset . format : <code> zadd name score value</code>. Redis set is a sorted unrepeat string type of collection.Every element has a relationship with a double score. Zset is sorted by redis using this socre.</p>
+<h3 id="what’s-the-meaning-of-Redis-persistence-How-many-methods-is-used-by-Redis-persistence-What-does-its-advantage-and-shortcoming"><a href="#what’s-the-meaning-of-Redis-persistence-How-many-methods-is-used-by-Redis-persistence-What-does-its-advantage-and-shortcoming" class="headerlink" title="what’s the meaning of Redis persistence ? How many methods is used by Redis persistence ?  What does its advantage and shortcoming ?"></a>what’s the meaning of Redis persistence ? How many methods is used by Redis persistence ?  What does its advantage and shortcoming ?</h3><p>&emsp;&emsp;Redis persistence is an action writing data from memory to disk , it can be prevented data lose when pc powered down.<br>&emsp;&emsp;Redis had provided two persistence methods, RDB (default) and AOF.</p>
+<h4 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h4><p>&emsp;&emsp;RDB is a abbreviation of Redis DataBase.The core of RDB function are rdbSave(generate RDB file) and rdbLoad(load data to memory from disk).RDB is a strategy that uses the COW(copy on write) of operation system to implement.COW is need OS to support,it is a native function supported by OS.It will be generate a process when Redis use COW to implement RDB.<br><img src="https://i.loli.net/2021/02/22/WQSt7HPnmIRdLJG.png" alt="avatar"></p>
+<h4 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h4><p>&emsp;&emsp;AOF is a abbreviation of Append-only file.It is a after-log function,don’t need check the command of wirite.RDB implement data backup has three strategy.There is as below:</p>
+</li>
+</ol>
+<ul>
+<li><p>always (when you run a write command,it will synchronizate AOF file at once)</p>
+</li>
+<li><p>everysec(OS will write the memory of cache to AOF file every second.)</p>
+</li>
+<li><p>no(OS will write the memory of cache to AOF file when the size of cache is enough big or the cache has been existed for a long time. )<br><img src="https://i.loli.net/2021/02/22/A19ClTvXYIinuQZ.png" alt="avatar">The function of<br>flushAppendOnlyFile will be invoked when the redis run the timing task.This function will do as belows:</p>
+</li>
+<li><p>WRITE: according to the cause, wirte the cache of aof_buf to AOF file</p>
+</li>
+<li><p>SAVE: according to the cause, invoke the function fsync or fdatasync , save AOF file in disk.</p>
+<h4 id="The-storage-of-structure-in-RDB-or-AOF"><a href="#The-storage-of-structure-in-RDB-or-AOF" class="headerlink" title="The storage of structure in RDB or AOF"></a>The storage of structure in RDB or AOF</h4></li>
+</ul>
+<p>It is a redis communication protocol(RESP,a communication protocol at Redis client and server, has many advantages,such as simplly implemented,fastly analysis, excellently readable) file.</p>
+<h4 id="Compre-AOF-and-RDB"><a href="#Compre-AOF-and-RDB" class="headerlink" title="Compre AOF and RDB"></a>Compre AOF and RDB</h4><ul>
+<li>AOF file has the higher update frequency than RDB, so use AOF file to restore at first.</li>
+<li>AOF is more safe than RDB.</li>
+<li>RDB is more performance than AOF.</li>
+<li>if you set this two methods, AOF will be loaded at first.</li>
+</ul>
+<p>###Redis cache、Redis Cache Penetration 、Redis cache breakdown、Redis cache avalanche</p>
+<h4 id="Redis-cache"><a href="#Redis-cache" class="headerlink" title="Redis cache"></a>Redis cache</h4><p>&emsp;&emsp; when the front send the request to get data , the back-end will get the data from redis,if the result is not empty,return the result to the front, or the back-end will get data from database. if the result of databse is empty then return null to the front or return this result.There is a full and right process for Redis,but it will have a problem , if a requesting run the full process and somebody will invoke this request without stop,the database will down.This phenomenon also called as Redis Cache Penetration. To present this phenomenon, there are two methods to solve it as below.</p>
+<ul>
+<li>the API should add check for needing search the database directly.</li>
+<li>if you get the empty data from redis cache and the result of database also be empty then you can write the key-null to the redis in a short time.<br>&emsp;&emsp;If the result of redis is null but the database has this value meanwile many users is visiting this value,the database will be affected greatly.This phenomenon also called as Redis Cache breakdown and it is in the light of one specific key. There are two methods to solve it as below.</li>
+<li>set the hot data is no expire</li>
+<li>use the mutex according to redis key<br>&emsp;&emsp;Redis cache avalanche is that many redis’s datas expire at the same time, the back-end will request the database at once , it is possible for causing the datase down.There are three methods to solve it as below.</li>
+<li>set the expire time of redis data at Randomly.</li>
+<li>set the hot data is no expire</li>
+<li>set the hot data in different database<br>Reference by <a target="_blank" rel="noopener" href="https://www.cnblogs.com/jasontec/p/9699242.html">REDIS</a></li>
+</ul>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://kerach.ltd" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Kerach</li>
+      <li><a href="https://kerach.ltd">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/kerach">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

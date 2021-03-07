@@ -1,366 +1,185 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
+
+
 <head>
-    <meta charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
-    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
-    
-    <title>The basic concept of thread | Kerach</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
-    <meta name="keywords" content="Kerach, 前端, Web, 顾亚辉, 后端开发" >
-    <meta name="description" content="Kerach个人前端小站" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    The basic concept of thread | Kerach
+  </title>
+  <meta name="description" content="releasing my mind and idea">
+  
+  <meta name="keywords" content="
+  Thread,Basic concept
+  ">
+  
+  <meta name="author" content="Kerach">
 
-    
-    <link rel="alternative" href="/atom.xml" title="Kerach" type="application/atom+xml" >
-    
-    
-    <link rel="icon" href="/favicon.ico" >
-    
-    
-<link rel="stylesheet" href="/css/style.css?v=1612963907759.css">
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
 
-    <!--[if lt IE 9]>
-    
-<script src="/js/html5.js"></script>
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
-    <![endif]-->
-    
+  
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <meta name="generator" content="Hexo 5.1.1"></head>
 
-<body class="home">
-    <!--[if lt IE 9]>
-    <div class="browsehappy">
-        当前网页 <strong>不支持</strong>
-        你正在使用的浏览器. 为了正常的访问, 请 <a target="_blank" rel="noopener" href="http://browsehappy.com/">升级你的浏览器</a>.
-    </div>
-    <![endif]-->
+<body id="replica-app">
 
-    <!-- 博客头部 -->
-    <header class="header">
-    <section class="container header-main">
-        <div class="logo">
-            <a href="/">
-                <div class="cover">
-                    <span class="name">Kerach</span>
-                    <span class="description">Kerach&#39;s Blog</span>
-                </div>
-            </a>
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
         </div>
-        <div class="dropnav iconfont icon-nav" id="JELON__btnDropNav"></div>
-        <ul class="menu hidden" id="JELON__menu">
-            
-            <li rel="/2021/02/08/The-basic-concept-of-thread/index.html" class="item ">
-                <a href="/" title="Home" class="iconfont icon-home">&nbsp;Home</a>
-            </li>
-            
-            <li rel="/2021/02/08/The-basic-concept-of-thread/index.html" class="item ">
-                <a href="/archives/" title="Archives" class="iconfont icon-archives">&nbsp;Archives</a>
-            </li>
-            
-            <li rel="/2021/02/08/The-basic-concept-of-thread/index.html" class="item ">
-                <a href="/about/" title="About" class="iconfont icon-staff">&nbsp;About</a>
-            </li>
-            
-            <li rel="/2021/02/08/The-basic-concept-of-thread/index.html" class="item ">
-                <a href="/comment/" title="Comment" class="iconfont icon-comment">&nbsp;Comment</a>
-            </li>
-            
-        </ul>
-        <div class="profile clearfix">
-            <div class="feeds fl">
-                
-                
-                <p class="links">
-                    
-                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
-                        |
-                    
-                        <a href="https://pages.coding.me" target="_blank">Hosted by Coding Pages</a>
-                        
-                    
-                </p>
-                <p class="sns">
-                    
-                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
-                    
-                        <a href="https://juejin.im/user/3984285869282919" class="qqweibo" target="_blank"><b>■</b> 掘金</a>
-                    
-                    <a href="javascript: void(0);" class="wechat">
-                        <b>■</b>
-                        公众号
-                        <span class="popover">
-                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
-                            <i class="arrow"></i>
-                        </span>
-                    </a>
-                </p>
-                
-            </div>
-            <div class="avatar fr">
-                <img src="https://i.loli.net/2021/02/09/FNUf1DSsXlHQw97.jpg" alt="avatar" title="Jelon" >
-            </div>
-        </div>
-    </section>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 15 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">Kerach</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
 </header>
 
 
-    <!-- 博客正文 -->
-    <div class="container body clearfix">
-        <section class="content">
-            <div class="content-main widget">
-                <!-- 文章页 -->
-<!-- 文章 -->
-<article class="post article">
-    <header class="text-center">
-        <h3 class="post-title"><span>The basic concept of thread</span></h3>
-    </header>
-    <p class="post-meta text-center">
-        Kerach 发表于
-        <time datetime="2021-02-08T12:10:52.000Z">2021-02-08</time>
-    </p>
-    <div id="JELON__articlePostContent" class="post-content">
-        <h2 id="What-is-a-process"><a href="#What-is-a-process" class="headerlink" title="What is a process ?"></a>What is a process ?</h2><p>The process should be a dynamic status for a program. A running of program called as process  that is isolated for  each other . Once an application is running, it is called a process.</p>
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Kerach
+
+    <span class="post-date float-right" title="{{moment(1612786252000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1612786252000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>The basic concept of thread</h1>
+    <h2 id="What-is-a-process"><a href="#What-is-a-process" class="headerlink" title="What is a process ?"></a>What is a process ?</h2><p>The process should be a dynamic status for a program. A running of program called as process  that is isolated for  each other . Once an application is running, it is called a process.</p>
 <h2 id="What-is-a-thread-？"><a href="#What-is-a-thread-？" class="headerlink" title="What is a thread ？"></a>What is a thread ？</h2><p>Thread is the basic unit of CPU scheduling and included in a process . Thread is a actual single sequential control flow in a process.</p>
 
-    </div>
-    <p class="eof">-- EOF --</p>
-    <p class="post-meta">
-        <span class="post-cat">分类：
-            <a class="cat-link" href="/categories/JAVA/">JAVA</a>|<a class="cat-link" href="/categories/JAVA/Thread/">Thread</a>
-        </span>
-        <span class="post-tags">
-            标签：
-            
-    
-        <a href="/tags/Thread-Basic-concept/" title="-Thread -Basic concept">-Thread -Basic concept</a>
-    
-
-        </span>
-    </p>
-</article>
-<!-- 分享按钮 -->
-
-  <div class="article-share clearfix text-center">
-    <div class="share-area">
-      <span class="share-txt">分享到：</span>
-      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
-      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
-      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
-      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
-      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
-    </div>
-  </div>
-
-
-<!-- 上一篇/下一篇 -->
-
-<div class="article-nav clearfix">
-    
-    <span class="prev fl">
-        上一篇<br >
-        <a href="javascript: void(0);">没有上一篇了</a>
-    </span>
-    
-
-    
-    <span class="next fr">
-        下一篇<br >
-        <a href="/2021/02/04/safety-thread/">
-            
-                Java Thread
-            
-        </a>
-    </span>
-    
+  </article>
 </div>
 
-<!-- 文章评论 -->
 
-  
-<script src="/js/comment.js?v=1612963907745.js"></script>
-
-  <div id="comments" class="comment">
-    <!--
-    <div class="sign-bar">
-      GitHub 已登录!
-      <span class="sign-link">登出</span>
-    </div>
-    <section class="box">
-      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
-      <div class="com-text">
-        <div class="main">
-          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
-          <div class="text-area-preview"></div>
-        </div>
-        <div class="switch">
-          <div class="switch-item on">编辑</div>
-          <div class="switch-item">预览</div>
-        </div>
-        <div class="button">提交</div>
-      </div>
-    </section>
-    <section class="tips">注：评论支持 markdown 语法！</section>
-    <section class="list-wrap">
-      <ul class="list">
-        <li>
-          <div class="user-avatar">
-            <a href="/">
-              <img src="/img/jelon.jpg" alt="user-avatar">
-            </a>
-          </div>
-          <div class="user-comment">
-            <div class="user-comment-header">
-              <span class="post-name">张德龙</span>
-              <span class="post-time">2017年12月12日</span>
-              <span class="like liked">已赞</span>
-              <span class="like-num">2</span>
-            </div>
-            <div class="user-comment-body">333333</div>
-          </div>
-        </li>
-        <li>
-          <div class="user-avatar">
-            <a href="/">
-              <img src="/img/jelon.jpg" alt="user-avatar">
-            </a>
-          </div>
-          <div class="user-comment">
-            <div class="user-comment-header">
-              <span class="post-name">刘德华</span>
-              <span class="post-time">2017年12月12日</span>
-              <span class="like">点赞</span>
-              <span class="like-num">2</span>
-            </div>
-            <div class="user-comment-body">vvvvv</div>
-          </div>
-        </li>
-      </ul>
-      <div class="page-nav">
-        <a href="javascript: void(0);" class="item">1</a>
-        <a href="javascript: void(0);" class="item">2</a>
-        <a href="javascript: void(0);" class="item current">3</a>
-      </div>
-    </section>
-    -->
-  </div>
-  <script>
-  JELON.Comment({
-    container: 'comments',
-    label: 'The-basic-concept-of-thread' || '2021/02/08/The-basic-concept-of-thread/',
-    owner: 'kerach',
-    repo: 'kerach.github.io',
-    clientId: 'd6d1c8a7fb9133a367c8',
-    clientSecret: '92db4009f0e8afbb04adf8c698163054e81495dd'
-  });
-  </script>
-
-
-
-            </div>
-        </section>
-        <!-- 侧栏部分 -->
-<aside class="sidebar">
     
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章搜索</strong></h3>
-        <div class="search-form">
-  <form
-    id="searchForm"
-    method="GET"
-    action="https://www.baidu.com/s"
-    ectype="application/x-www-form-urlencoded"
-    target="_blank"
-    autocomplete="false"
-    onsubmit="javascript: return false;">
-    <input
-      id="searchKeyword"
-      type="text"
-      class="form-control"
-      placeholder="输入关键字搜索"
-      autocomplete="false"
-    />
-    <input id="searchKeywordHidden" type="hidden" name="wd" />
-    <input id="searchButton" class="btn" type="submit" value="搜索" />
-  </form>
+
+
+
+
 </div>
-    </section>
-    
 
-    <section class="widget">
-        <h3 class="widget-hd"><strong>文章分类</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
-    
-    <li>
-        <a href="/categories/JAVA/">JAVA</a>
-        <span class="badge">(3)</span>
-    </li>
-    
-    <li>
-        <a href="/categories/JAVA/Thread/">Thread</a>
-        <span class="badge">(3)</span>
-    </li>
-    
-</ul>
-    </section>
-
-    
-    <section class="widget">
-        <h3 class="widget-hd"><strong>热门标签</strong></h3>
-        <!-- 文章标签 -->
-<div class="widget-bd tag-wrap">
-  
-    <a class="tag-item" href="/tags/Thread-Basic-concept/" title="-Thread -Basic concept">-Thread -Basic concept (1)</a>
-  
-    <a class="tag-item" href="/tags/java/" title="java">java (1)</a>
-  
-    <a class="tag-item" href="/tags/thread/" title="thread">thread (1)</a>
-  
-</div>
-    </section>
-    
-
-    
-
-    
-    <!-- 友情链接 -->
-    <section class="widget">
-        <h3 class="widget-hd"><strong>友情链接</strong></h3>
-        <!-- 文章分类 -->
-<ul class="widget-bd">
-    
-        <li>
-            <a href="https://github.com/front-end-pigs/blog" target="_blank" title="Github博客">Github博客</a>
-        </li>
-    
-        <li>
-            <a href="https://Kerach.info" target="_blank" title="Kerach博客">Kerach博客</a>
-        </li>
-    
-</ul>
-    </section>
-    
-</aside>
-<!-- / 侧栏部分 -->
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://kerach.ltd" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2021 Kerach</li>
+      <li><a href="https://kerach.ltd">Home</a></li>
+      
+      <li><a target="_blank" rel="noopener" href="https://github.com/kerach">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
     </div>
-
-    <!-- 博客底部 -->
-    <footer class="footer">
-    &copy;
+    </div>
     
-        2014-2021
-    
+  </footer>
+</div>
 
-    <a href="/">Kerach Loves You</a>
-</footer>
-<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
 
-    <!--博客js脚本 -->
-    <!-- 这里放网站js脚本 -->
 
-<script src="/js/main.js?v=1612963907760.js"></script>
 
+<script src="/js/main.js"></script>
 
 </body>
 </html>
