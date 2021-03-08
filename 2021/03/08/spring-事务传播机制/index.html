@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Spring transaction failure scenarios | Kerach
+    spring 事务传播机制 | Kerach
   </title>
   <meta name="description" content="releasing my mind and idea">
   
   <meta name="keywords" content="
-  spring,transaction,transaction failure
+  transaction
   ">
   
   <meta name="author" content="Kerach">
@@ -130,25 +130,25 @@
     <i class="fa fa-user-o"></i>
     Kerach
 
-    <span class="post-date float-right" title="{{moment(1613977499000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1615182076000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1613977499000).fromNow()}}
+      {{moment(1615182076000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>Spring transaction failure scenarios</h1>
-    <h2 id="Spring-transaction-failure-scenarios"><a href="#Spring-transaction-failure-scenarios" class="headerlink" title="Spring transaction failure scenarios"></a>Spring transaction failure scenarios</h2><p> &emsp;&emsp;there is some reasons for failure scenarios in spring transaction.</p>
-<ul>
-<li>Using engine of database is not supported</li>
-<li>The class of transactional method is not managed by Spring (Usually unused annotation @Service)</li>
-<li>The transactional method is not public</li>
-<li>The class of transactional methods happend invoked its method ( the transactional of method should only invoke by Spring , or it will be no effect)</li>
-<li>The Transaction manager of datasource is not existed.(such as<code> @Transactional(propagation = Propagation.NOT_SUPPORTED)</code>)</li>
-<li>The exception produced by the transaction of method was not thrown.</li>
-<li>The exception produced by the transaction of method was thrown , but its type is error. The exception should be a java Runtime Exception, if you want to make the transaction of method effect when throw other exception, then you should use follows <code>@Transactional(rollbackFor = Exception.class)</code></li>
+    <h1>spring 事务传播机制</h1>
+    <h2 id="Spring-事务传播机制"><a href="#Spring-事务传播机制" class="headerlink" title="Spring 事务传播机制"></a>Spring 事务传播机制</h2><ul>
+<li>REQUIRED（默认）：支持使用当前事务，如果当前事务不存在，创建一个新事务。</li>
+<li>SUPPORTS：支持使用当前事务，如果当前事务不存在，则不使用事务。</li>
+<li>MANDATORY：中文翻译为强制，支持使用当前事务，如果当前事务不存在，则抛出Exception。</li>
+<li>REQUIRES_NEW：创建一个新事务，如果当前事务存在，把当前事务挂起。</li>
+<li>NOT_SUPPORTED：无事务执行，如果当前事务存在，把当前事务挂起。</li>
+<li>NEVER：无事务执行，如果当前有事务则抛出Exception。</li>
+<li>NESTED：嵌套事务，如果当前事务存在，那么在嵌套的事务中执行。如果当前事务不存在，则表现跟REQUIRED一样。<br>Spring的事务传播机制的实现是通过注解<code>@Transactional(propagation=Propagation.REQUIRED)</code>来实现的。该注解的实现如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@Target(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span><br><span class="line">@Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">@Inherited</span><br><span class="line">@Documented</span><br><span class="line">public @interface Transactional &#123;</span><br><span class="line">    @AliasFor(&quot;transactionManager&quot;)</span><br><span class="line">    String value() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    @AliasFor(&quot;value&quot;)</span><br><span class="line">    String transactionManager() default &quot;&quot;;</span><br><span class="line"></span><br><span class="line">    Propagation propagation() default Propagation.REQUIRED;</span><br><span class="line"></span><br><span class="line">    Isolation isolation() default Isolation.DEFAULT;</span><br><span class="line"></span><br><span class="line">    int timeout() default -1;</span><br><span class="line"></span><br><span class="line">    boolean readOnly() default false;</span><br><span class="line"></span><br><span class="line">    Class&lt;? extends Throwable&gt;[] rollbackFor() default &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    String[] rollbackForClassName() default &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    Class&lt;? extends Throwable&gt;[] noRollbackFor() default &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    String[] noRollbackForClassName() default &#123;&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+其中该注解下的propagation 控制spring事务的传播机制；transactionManager则是控制具体事务的管理器，针对不同的数据库和ORM框架实现不同的事务管理，以便实现适应不同数据库事务的能力；Isolation，为控制数据库的默认事务隔离级别，不同数据的默认隔离级别不同，mysql的默认隔离级别为repeatable read,而oracle则为read commited。</li>
 </ul>
 
   </article>

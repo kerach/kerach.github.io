@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Spring transaction failure scenarios | Kerach
+    Spring @Autowired注入过程 | Kerach
   </title>
   <meta name="description" content="releasing my mind and idea">
   
   <meta name="keywords" content="
-  spring,transaction,transaction failure
+  Spring,Autowired
   ">
   
   <meta name="author" content="Kerach">
@@ -130,26 +130,24 @@
     <i class="fa fa-user-o"></i>
     Kerach
 
-    <span class="post-date float-right" title="{{moment(1613977499000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1615212205000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1613977499000).fromNow()}}
+      {{moment(1615212205000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>Spring transaction failure scenarios</h1>
-    <h2 id="Spring-transaction-failure-scenarios"><a href="#Spring-transaction-failure-scenarios" class="headerlink" title="Spring transaction failure scenarios"></a>Spring transaction failure scenarios</h2><p> &emsp;&emsp;there is some reasons for failure scenarios in spring transaction.</p>
-<ul>
-<li>Using engine of database is not supported</li>
-<li>The class of transactional method is not managed by Spring (Usually unused annotation @Service)</li>
-<li>The transactional method is not public</li>
-<li>The class of transactional methods happend invoked its method ( the transactional of method should only invoke by Spring , or it will be no effect)</li>
-<li>The Transaction manager of datasource is not existed.(such as<code> @Transactional(propagation = Propagation.NOT_SUPPORTED)</code>)</li>
-<li>The exception produced by the transaction of method was not thrown.</li>
-<li>The exception produced by the transaction of method was thrown , but its type is error. The exception should be a java Runtime Exception, if you want to make the transaction of method effect when throw other exception, then you should use follows <code>@Transactional(rollbackFor = Exception.class)</code></li>
-</ul>
+    <h1>Spring @Autowired注入过程</h1>
+    <h2 id="Spring-Autowired注入过程"><a href="#Spring-Autowired注入过程" class="headerlink" title="Spring @Autowired注入过程"></a>Spring @Autowired注入过程</h2><p>@Autowired的具体实现可以参照spring framework进行更详细的探索，目前可以确定的大致流程为：@Autowired的类实现结构为<br><img src="https://i.loli.net/2021/03/08/Jt8sZfKQAcLmYj5.png" alt="265c231e4b9ebcf6212e91a735352e5.png"><br>顶层接口都是实现的BeanPostProcessor。<br>注：BeanFactoryPostProcessor当所有bean定义都将被加载但尚未实例化任何bean时，将调用bean实现。这甚至可以覆盖或添加属性，甚至可以用于初始化bean。这将使你可以访问以XML定义或已注释（通过component-scan扫描）的所有bean。<br>Bean实现BeanPostProcessor对Bean（或对象）实例进行操作，这意味着当Spring IoC容器实例化Bean实例时，BeanPostProcessor接口将完成其工作。<br>BeanFactoryPostProcessor在所有上下文定义都将被加载之后，在Spring上下文启动期间“实现” BeanPostProcessor被“调用”，而在Spring IoC容器实例化一个bean时（即在所有单例启动时以及根据原型的需求启动时）“调用”实现。<br>在spring的启动过程中，刷新上下文（refresh）的时候，会调用registerBeanPostProcessors(beanFactory)方法完成BeanPostProcessor的实例化与注册，后续再调用finishBeanFactoryInitialization(beanFactory)实例化非延迟加载的单例bean时，会用到上述注册的BeanPostProcessor。具体的实现在 </p>
+<p> <img src="https://i.loli.net/2021/03/08/7wNaljUhKbOer3Z.png" alt="969e5c7d1a60e0aceedf7834d7253a3.png"></p>
+<p>该类会读取bean的field和method上的注解，并判断该注解是否在autowiredAnnotationTypes中，如果在则将field封装成AutowiredFiledElement对象、将method封装成AutoWiredMethodElement对象，并存放到InjectionMetadata对象的Set<InjectedElement> checkedElements属性中，最后将该InjectionMetadata对象缓存到了AutowiredAnnotationBeanPostProcessor的Map&lt;String, InjectionMetadata&gt; injectionMetadataCache属性中；说白了就是将bean中被@Autowried（当然还包括@Value、@Inject）修饰的field、method找出来，封装成InjectionMetadata对象并缓存起来</p>
+<h3 id="bean的创建与初始化"><a href="#bean的创建与初始化" class="headerlink" title="bean的创建与初始化"></a>bean的创建与初始化</h3><p>（1）instanceWrapper = createBeanInstance(beanName, mbd, args)　　创建目标bean实例；</p>
+<p>　　　　（2）applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName)　　寻找目标bean的依赖；</p>
+<p>　　　　（3）populateBean(beanName, mbd, instanceWrapper)　　填充目标bean，完成依赖注入； （这里的循环依赖，有兴趣的可以自行去琢磨下）</p>
+<p>　　　　（4）initializeBean(beanName, exposedObject, mbd)　　初始化目标bean</p>
+<h3 id="自动装配与自动配置"><a href="#自动装配与自动配置" class="headerlink" title="自动装配与自动配置"></a>自动装配与自动配置</h3><p>　自动配置一般而言说的是spring的@Autowired，是spring的特性之一，而自动配置是springboot的@Configuration，是springboot的特性之一（有待进一步补充）</p>
 
   </article>
 </div>

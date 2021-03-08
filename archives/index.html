@@ -129,18 +129,114 @@
     <li class="">
       <a href="/">Overview</a></li>
     <li class="selected">
-      <a href="/archives">Posts <span class="counter">9</span></a>
+      <a href="/archives">Posts <span class="counter">13</span></a>
     </li>
     <li class="">
       <a href="/categories">Categories <span
-                class="counter">4</span></a></li>
+                class="counter">7</span></a></li>
     <li class="">
-      <a href="/tags">Tags <span class="counter">15</span></a></li>
+      <a href="/tags">Tags <span class="counter">19</span></a></li>
   </ul>
 </nav>
 
     <div class="body-secondary">
       <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/08/Spring-Autowired%E6%B3%A8%E5%85%A5%E8%BF%87%E7%A8%8B/">Spring @Autowired注入过程</a></h2>
+          <p>
+               Spring @Autowired注入过程  @Autowired的具体实现可以参照spring framework进行更详细的探索，目前可以确定的大致流程为：@Autowired的类实现结构为   顶层接口都是实现的BeanPostProcessor。 注：BeanFactoryPostPr...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/Spring/">Spring</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/Autowired/">Autowired</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/Spring/"><i class="fa fa-folder-open"></i> Spring</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1615212205000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/08/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">面试总结</a></h2>
+          <p>
+             1、spring相关面试题（Spring的事务传播机制） 2、常见设计模式（单例模式、工厂模式、适配器模式、代理模式） 3、线程池创建参数、方式；ThreadLocal的应用；线程的默认方法的作用（notify、sleep、interruption） 4、数据库事务的特性、隔离级别；事务的最左原则...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1615192856000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/08/spring-%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E6%9C%BA%E5%88%B6/">spring 事务传播机制</a></h2>
+          <p>
+               Spring 事务传播机制  
+ REQUIRED（默认）：支持使用当前事务，如果当前事务不存在，创建一个新事务。 
+ SUPPORTS：支持使用当前事务，如果当前事务不存在，则不使用事务。 
+ MANDATORY：中文翻译为强制，支持使用当前事务，如果当前事务不存在，则抛出Exception...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/transaction/">transaction</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/DataBase/"><i class="fa fa-folder-open"></i> DataBase</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 1 </span>
+            <span>Published {{moment(1615182076000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/08/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%8B%E5%8A%A1%E4%BB%A5%E5%8F%8A%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB/">数据库事务以及隔离级别</a></h2>
+          <p>
+               数据库事务的特性  数据库事务的特性：原子性、一致性、持久性和隔离性。 
+   数据库在并发访问时可能出现的问题  
+ 更新丢失 
+ 脏读 
+ 不可重复读 
+ 幻读 其中，更新丢失是指事务A访问一个数据并修改，未提交，此时事务B对该数据进行修改并提交，事务B完成后，事务A提交自己的事务，则事务...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/transaction/">transaction</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/DataBase/">DataBase</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/DataBase/"><i class="fa fa-folder-open"></i> DataBase</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1615180904000).fromNow()}}</span>
+          </div>
+        </li>
         
         <li class="archive-list-item">
           <h2><a href="/2021/03/04/the-summary-of-interview/">the summary of interview</a></h2>
@@ -164,7 +260,8 @@
         <li class="archive-list-item">
           <h2><a href="/2021/02/25/String%E3%80%81StringBuffer%E3%80%81StringBuilder-difference/">String、StringBuffer、StringBuilder difference</a></h2>
           <p>
-            ...
+               Class Diagrams  The following diagram show the relationship of String 、StringBuffer and StringBuilder.   
+   Compare with them    String  There is ...
           </p>
           <ul class="tag-list clearfix">
             
@@ -287,79 +384,6 @@
             </span>
             <span><i class="fa fa-tag"></i> 2 </span>
             <span>Published {{moment(1613980815000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2021/02/22/Spring-transaction-failure-scenarios/">Spring transaction failure scenarios</a></h2>
-          <p>
-               Spring transaction failure scenarios   &amp;emsp;&amp;emsp;there is some reasons for failure scenarios in spring transaction. 
- 
- Using engine of database ...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/spring/">spring</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/transaction/">transaction</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/transaction-failure/">transaction failure</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/JAVA/"><i class="fa fa-folder-open"></i> JAVA</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 3 </span>
-            <span>Published {{moment(1613977499000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2021/02/08/The-basic-concept-of-thread/">The basic concept of thread</a></h2>
-          <p>
-               What is a process ?  The process should be a dynamic status for a program. A running of program called as process  that is isolated for  each other...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/Thread/">Thread</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/Basic-concept/">Basic concept</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/JAVA/"><i class="fa fa-folder-open"></i> JAVA</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 2 </span>
-            <span>Published {{moment(1612786252000).fromNow()}}</span>
-          </div>
-        </li>
-        
-        <li class="archive-list-item">
-          <h2><a href="/2021/02/04/safety-thread/">Java Thread</a></h2>
-          <p>
-               What is the meaning of thread safety ?   &amp;emsp;&amp;emsp;I consider that most of people don’t understand it or describe it clearly. Thread safety shoul...
-          </p>
-          <ul class="tag-list clearfix">
-            
-            <li class="tag-list-item"><a href="/tags/java/">java</a></li>
-            
-            <li class="tag-list-item"><a href="/tags/thread/">thread</a></li>
-            
-          </ul>
-          <div class="post-info">
-            <span>
-              
-              <a class="category-link" href="/categories/JAVA/"><i class="fa fa-folder-open"></i> JAVA</a>
-              
-            </span>
-            <span><i class="fa fa-tag"></i> 2 </span>
-            <span>Published {{moment(1612408743000).fromNow()}}</span>
           </div>
         </li>
         

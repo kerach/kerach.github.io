@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Spring transaction failure scenarios | Kerach
+    数据库事务以及隔离级别 | Kerach
   </title>
   <meta name="description" content="releasing my mind and idea">
   
   <meta name="keywords" content="
-  spring,transaction,transaction failure
+  transaction,DataBase
   ">
   
   <meta name="author" content="Kerach">
@@ -130,25 +130,26 @@
     <i class="fa fa-user-o"></i>
     Kerach
 
-    <span class="post-date float-right" title="{{moment(1613977499000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1615180904000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1613977499000).fromNow()}}
+      {{moment(1615180904000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>Spring transaction failure scenarios</h1>
-    <h2 id="Spring-transaction-failure-scenarios"><a href="#Spring-transaction-failure-scenarios" class="headerlink" title="Spring transaction failure scenarios"></a>Spring transaction failure scenarios</h2><p> &emsp;&emsp;there is some reasons for failure scenarios in spring transaction.</p>
-<ul>
-<li>Using engine of database is not supported</li>
-<li>The class of transactional method is not managed by Spring (Usually unused annotation @Service)</li>
-<li>The transactional method is not public</li>
-<li>The class of transactional methods happend invoked its method ( the transactional of method should only invoke by Spring , or it will be no effect)</li>
-<li>The Transaction manager of datasource is not existed.(such as<code> @Transactional(propagation = Propagation.NOT_SUPPORTED)</code>)</li>
-<li>The exception produced by the transaction of method was not thrown.</li>
-<li>The exception produced by the transaction of method was thrown , but its type is error. The exception should be a java Runtime Exception, if you want to make the transaction of method effect when throw other exception, then you should use follows <code>@Transactional(rollbackFor = Exception.class)</code></li>
+    <h1>数据库事务以及隔离级别</h1>
+    <h3 id="数据库事务的特性"><a href="#数据库事务的特性" class="headerlink" title="数据库事务的特性"></a>数据库事务的特性</h3><p>数据库事务的特性：原子性、一致性、持久性和隔离性。</p>
+<h3 id="数据库在并发访问时可能出现的问题"><a href="#数据库在并发访问时可能出现的问题" class="headerlink" title="数据库在并发访问时可能出现的问题"></a>数据库在并发访问时可能出现的问题</h3><ul>
+<li>更新丢失</li>
+<li>脏读</li>
+<li>不可重复读</li>
+<li>幻读<br>其中，更新丢失是指事务A访问一个数据并修改，未提交，此时事务B对该数据进行修改并提交，事务B完成后，事务A提交自己的事务，则事务B的数据更新就会丢失，称为更新丢失。脏读，脏读是指一个事务正在对一条记录做修改，在这个事务完成并提交之前，这条数据是处于待定状态的（可能提交也可能回滚），这时，第二个事务来读取这条没有提交的数据，并据此做进一步的处理，就会产生未提交的数据依赖关系。这种现象被称为脏读。不可重复读是指，事务A需要不断地进行数据读取，此时事务B对数据进行了更新，则事务A读取的数据就会发生改变，导致数据在事务A中发生改变，称为不可重复读，不可重复读侧重于一行数据的更新行为，解决不可重复读的办法是锁行。幻读是指事务A需要不停地读取某一区间的数据，这是事务B在这一区间插入或删除了数据，导致事务A读取的一批数据发生改变，此时称为幻读。幻读倾向于特定区间的很多数据，解决幻读问题通常需要进行锁表。<h3 id="数据库事务隔离级别"><a href="#数据库事务隔离级别" class="headerlink" title="数据库事务隔离级别"></a>数据库事务隔离级别</h3></li>
+<li>Read UnCommited , 读未提交</li>
+<li>Read Commited , 读已提交</li>
+<li>Repeatable Read, 可重复读</li>
+<li>Serializable,串行化<br>读未提交是数据库的最低事务级别，此级别不能解决脏读、不可重复读和幻读；读已提交是oracle的默认事务隔离级别，可以解决脏读的问题，但不能解决不可重复读和幻读；可重复读是mysql Innodb的默认隔离级别，该级别可以解决不可重复读的问题和脏读问题，但会产生幻读问题；串行化，是数据库事务的最高级别，将所有的事务按顺序进行数据访问，能解决所有问题，但是效率极低。</li>
 </ul>
 
   </article>

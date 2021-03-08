@@ -8,13 +8,9 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Spring transaction failure scenarios | Kerach
+    Kerach
   </title>
   <meta name="description" content="releasing my mind and idea">
-  
-  <meta name="keywords" content="
-  spring,transaction,transaction failure
-  ">
   
   <meta name="author" content="Kerach">
 
@@ -83,82 +79,96 @@
 </nav>
 
 <div class="main-container">
-  <header class="header-wrapper desktop-only">
-  <div class="container header-site-detail">
-    <ul class="header-toolbar">
-      <li class="clearfix">
-        <a href="/archives" class="header-toolbar-left"><i
-                  class="fa fa-file-text"></i> Posts </a>
-        <a href="/archives"
-           class="header-toolbar-right"> 13 </a>
-      </li>
-      <li>
-        <a href="/tags" class="header-toolbar-left"><i
-                  class="fa fa-tags"></i> Tags </a>
-        <a href="/tags"
-           class="header-toolbar-right"> 19 </a>
-      </li>
-      <li>
-        <a href="/categories" class="header-toolbar-left"><i
-                  class="fa fa-folder-open"></i> Categories </a>
-        <a href="/categories"
-           class="header-toolbar-right"> 7 </a>
-      </li>
-    </ul>
-    <h2 class="header-title">
-      <i class="fa fa-book text-muted"></i>
-      <a href="/">Kerach</a>
-      
-      
-    </h2>
-  </div>
+  
 
-  <div class="container">
-    <div class="header-tab-wrapper clearfix">
-      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
-      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
-      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
-      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
-      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/baracktocat.jpg">
+    <div class="user-name">
+      <div class="blog-title"></div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://kerach.ltd">https://kerach.ltd</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
     </div>
   </div>
-</header>
 
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="https://kerach.ltd">https://kerach.ltd</a>
+    </li>
+  </ul>
 
-<div class="post-container container">
-  <h3>
-    <i class="fa fa-user-o"></i>
-    Kerach
-
-    <span class="post-date float-right" title="{{moment(1613977499000).format('MMM DD, YYYY, h:mm:ss A')}}">
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
       
-          <i class="fa fa-pencil-square-o"></i>
+      <li class="social-media-item"><a href="https://github.com/kerach" target="_blank"><i class="fa fa-github"></i></a></li>
       
-      {{moment(1613977499000).fromNow()}}
-    </span>
-  </h3>
-
-  <article class="post-content">
-    <h1>Spring transaction failure scenarios</h1>
-    <h2 id="Spring-transaction-failure-scenarios"><a href="#Spring-transaction-failure-scenarios" class="headerlink" title="Spring transaction failure scenarios"></a>Spring transaction failure scenarios</h2><p> &emsp;&emsp;there is some reasons for failure scenarios in spring transaction.</p>
-<ul>
-<li>Using engine of database is not supported</li>
-<li>The class of transactional method is not managed by Spring (Usually unused annotation @Service)</li>
-<li>The transactional method is not public</li>
-<li>The class of transactional methods happend invoked its method ( the transactional of method should only invoke by Spring , or it will be no effect)</li>
-<li>The Transaction manager of datasource is not existed.(such as<code> @Transactional(propagation = Propagation.NOT_SUPPORTED)</code>)</li>
-<li>The exception produced by the transaction of method was not thrown.</li>
-<li>The exception produced by the transaction of method was thrown , but its type is error. The exception should be a java Runtime Exception, if you want to make the transaction of method effect when throw other exception, then you should use follows <code>@Transactional(rollbackFor = Exception.class)</code></li>
-</ul>
-
-  </article>
+    </ul>
+  </div>
 </div>
 
 
+  <div class="blog-detail">
     
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/archives">Posts <span class="counter">13</span></a>
+    </li>
+    <li class="selected">
+      <a href="/categories">Categories <span
+                class="counter">7</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">19</span></a></li>
+  </ul>
+</nav>
 
-
-
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/08/Spring-Autowired%E6%B3%A8%E5%85%A5%E8%BF%87%E7%A8%8B/">Spring @Autowired注入过程</a></h2>
+          <p>
+               Spring @Autowired注入过程  @Autowired的具体实现可以参照spring framework进行更详细的探索，目前可以确定的大致流程为：@Autowired的类实现结构为   顶层接口都是实现的BeanPostProcessor。 注：BeanFactoryPostPr...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/Spring/">Spring</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/Autowired/">Autowired</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/Spring/"><i class="fa fa-folder-open"></i> Spring</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 2 </span>
+            <span>Published {{moment(1615212205000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
 
 </div>
 

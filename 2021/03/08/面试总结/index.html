@@ -8,12 +8,12 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Spring transaction failure scenarios | Kerach
+    面试总结 | Kerach
   </title>
   <meta name="description" content="releasing my mind and idea">
   
   <meta name="keywords" content="
-  spring,transaction,transaction failure
+  面试
   ">
   
   <meta name="author" content="Kerach">
@@ -130,26 +130,17 @@
     <i class="fa fa-user-o"></i>
     Kerach
 
-    <span class="post-date float-right" title="{{moment(1613977499000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1615192856000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1613977499000).fromNow()}}
+      {{moment(1615192856000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>Spring transaction failure scenarios</h1>
-    <h2 id="Spring-transaction-failure-scenarios"><a href="#Spring-transaction-failure-scenarios" class="headerlink" title="Spring transaction failure scenarios"></a>Spring transaction failure scenarios</h2><p> &emsp;&emsp;there is some reasons for failure scenarios in spring transaction.</p>
-<ul>
-<li>Using engine of database is not supported</li>
-<li>The class of transactional method is not managed by Spring (Usually unused annotation @Service)</li>
-<li>The transactional method is not public</li>
-<li>The class of transactional methods happend invoked its method ( the transactional of method should only invoke by Spring , or it will be no effect)</li>
-<li>The Transaction manager of datasource is not existed.(such as<code> @Transactional(propagation = Propagation.NOT_SUPPORTED)</code>)</li>
-<li>The exception produced by the transaction of method was not thrown.</li>
-<li>The exception produced by the transaction of method was thrown , but its type is error. The exception should be a java Runtime Exception, if you want to make the transaction of method effect when throw other exception, then you should use follows <code>@Transactional(rollbackFor = Exception.class)</code></li>
-</ul>
+    <h1>面试总结</h1>
+    <p>1、spring相关面试题（Spring的事务传播机制）<br>2、常见设计模式（单例模式、工厂模式、适配器模式、代理模式）<br>3、线程池创建参数、方式；ThreadLocal的应用；线程的默认方法的作用（notify、sleep、interruption）<br>4、数据库事务的特性、隔离级别；事务的最左原则<br>5、java 内存模型、对象存储结构<br>6、常见数据结构与算法（排序（冒泡、选择、快排）、二叉树遍历、队列的创建访问和反转）<br>7、mybatis常见面试题（缓存相关、$#符号相关）<br>8、项目主要亮点分析、职责分析<br>9、个人的发展的主要诉求<br>10、Redis的缓存穿透、击穿、雪崩</p>
 
   </article>
 </div>
